@@ -19,27 +19,3 @@ resource "null_resource" "startup" {
             command = "sh startup.sh"
         }
 }
-
-
-#data "kubectl_filename_list" "manifests" {
-#    pattern = "./k8s/*.yaml"
-#}
-
-
-#resource "kubectl_manifest" "default" {
-#    depends_on = [null_resource.get_credentials]
-#    count = length(data.kubectl_filename_list.manifests.matches)
-#    yaml_body = file(element(data.kubectl_filename_list.manifests.matches, count.index))
-#}
-
-
-#resource "helm_release" "cert_manager" {
-#  name       = "cert-manager"
-#  repository = "https://charts.bitnami.com/bitnami"
-#  chart      = "nginx-ingress-controller"
-#
-#  set {
-#    name  = "service.type"
-#    value = "LoadBalancer"
-#  }
-#}

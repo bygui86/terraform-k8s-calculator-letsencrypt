@@ -15,7 +15,3 @@ spec:
       containers:
         - name: redis
           image: redis
-          resources:
-            requests:
-              cpu: 100m
-              memory: 100Mi
